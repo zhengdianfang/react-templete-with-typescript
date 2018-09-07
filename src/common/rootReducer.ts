@@ -1,0 +1,13 @@
+import { routerReducer } from 'react-router-redux';
+import { combineReducers } from 'redux';
+
+import homeReducer from '../features/home/redux/reducer';
+import miscsReducer from '../features/common/redux/reducer';
+import { IReducerRootStates } from '../features/common/types';
+
+const reducerMap: IReducerRootStates = {
+  nav: routerReducer,
+  home: homeReducer,
+  miscs: miscsReducer,
+};
+export default combineReducers(reducerMap);
