@@ -6,6 +6,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const eslintFormatter = require('react-dev-utils/eslintFormatter')
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
+const SizePlugin = require('size-plugin');
 const getClientEnvironment = require('./env')
 const paths = require('./paths')
 
@@ -109,6 +110,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new SizePlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
