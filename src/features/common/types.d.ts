@@ -1,7 +1,7 @@
-import { Reducer } from "redux";
+import { Reducer, AnyAction } from "redux";
 import { RouterState } from "react-router-redux";
 
-export interface Action<T> {
+export interface Action<T> extends AnyAction {
   type: string;
   payload: T;
 }
