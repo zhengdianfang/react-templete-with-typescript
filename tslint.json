@@ -48,7 +48,7 @@
             true,
             "always",
             "ignore-interfaces"
-        ],
+        ]
     },
     "jsRules": {
         "no-console": [

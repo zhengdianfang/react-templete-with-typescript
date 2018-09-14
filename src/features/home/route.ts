@@ -1,8 +1,8 @@
+import { Route } from '../../common/types';
 import {
   Main,
 } from './';
 import Login from './containers/Login';
-import { Route } from '../../common/types';
 
 const route: Route = {
   path: '/',

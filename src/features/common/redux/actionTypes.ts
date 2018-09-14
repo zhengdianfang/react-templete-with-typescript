@@ -1,3 +1,3 @@
 export default {
   'SWITCH_LANGUAGE@MISCS': 'SWITCH_LANGUAGE@MISCS',
-} 
+};

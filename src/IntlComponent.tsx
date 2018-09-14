@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { IntlProvider, addLocaleData } from 'react-intl';
+import { addLocaleData, IntlProvider } from 'react-intl';
+// tslint:disable-next-line:no-submodule-imports
 import * as en from 'react-intl/locale-data/en';
+// tslint:disable-next-line:no-submodule-imports
 import * as zh from 'react-intl/locale-data/zh';
-import translations from './translations';
 import { connect } from 'react-redux';
 import { IRootStates } from './features/common/types';
+import translations from './translations';
 
 addLocaleData([ ...en, ...zh ]);
 
@@ -18,7 +20,7 @@ interface IStateProps {
 
 const mapStateToProps = (state: IRootStates) => ({
   lang: state.miscs.lang,
-})
+});
 
 export default connect<IStateProps, {}, IOwnProps>(mapStateToProps)((props: IStateProps & IOwnProps) => (
   <IntlProvider
@@ -26,6 +28,6 @@ export default connect<IStateProps, {}, IOwnProps>(mapStateToProps)((props: ISta
     key={props.lang}
     messages={translations[props.lang]}
   >
-    {props.children} 
-  </IntlProvider> 
+    {props.children}
+  </IntlProvider>
 ));

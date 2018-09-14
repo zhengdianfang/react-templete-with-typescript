@@ -1,3 +1,3 @@
 export default {
-  test: 'Home Page'
-}
+  test: 'Home Page',
+};

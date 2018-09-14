@@ -1,3 +1,3 @@
 export default {
-  test: '首页'
-}
+  test: '首页',
+};

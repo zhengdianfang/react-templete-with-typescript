@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import { injectIntl, InjectedIntlProps, FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, InjectedIntlProps } from 'react-intl';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bindActionCreators, Dispatch } from 'redux';
 import { switchAppLanguage } from '../../common/redux/actions';
 import { Language } from '../../common/types';
 
 interface IOwnProps extends InjectedIntlProps {}
 interface IDispatchProps {
-  switchAppLanguage: (lang: Language) => void; 
+  switchAppLanguage: (lang: Language) => void;
 }
 
 class Main extends React.Component<IOwnProps & IDispatchProps> {
@@ -17,11 +17,11 @@ class Main extends React.Component<IOwnProps & IDispatchProps> {
   }
   switchLanguage = () => {
     this.props.switchAppLanguage('zh');
-  };
+  }
   render() {
     return (
       <div>
-        <FormattedMessage id='test' />
+        <FormattedMessage id="test" />
         <br />
         <Link to="/login">Start Login</Link>
         <br />
@@ -32,6 +32,6 @@ class Main extends React.Component<IOwnProps & IDispatchProps> {
 }
 const mapDispatchToProps = (dispath: Dispatch) => bindActionCreators({
    switchAppLanguage,
-}, dispath); 
+}, dispath);
 
 export default connect(null, mapDispatchToProps)(injectIntl(Main));

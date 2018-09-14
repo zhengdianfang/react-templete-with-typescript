@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface IProps { 
+interface IProps {
   children: React.ReactElement<any>;
 }
 

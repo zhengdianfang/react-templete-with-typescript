@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
-import PageNotFound from 'src/features/common/containers/PageNotFound';
+import PageNotFound from '../../../src/features/common/containers/PageNotFound';
 
 describe('test PageNotFound Page', () => {
   test('renders children when pass in', () => {

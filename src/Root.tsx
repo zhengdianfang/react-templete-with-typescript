@@ -9,9 +9,9 @@ import {
 import { ConnectedRouter } from 'react-router-redux';
 import { Store } from 'redux';
 
+import IntlComponent from './IntlComponent';
 import history from './common/history';
 import { Route } from './common/types';
-import IntlComponent from './IntlComponent';
 
 const renderRouteConfig = (routes: Route[], contextPath: string)
   : Array<React.ReactElement<RouteProps>> | React.ReactElement<RouteProps> => {
