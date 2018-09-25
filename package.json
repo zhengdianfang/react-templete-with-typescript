@@ -17,7 +17,9 @@
     "react-router-redux": "5.0.0-alpha.9",
     "redux": "4.0.0",
     "redux-logger": "3.0.6",
-    "redux-thunk": "2.3.0"
+    "redux-thunk": "2.3.0",
+    "dotenv": "4.0.0",
+    "dotenv-expand": "4.2.0"
   },
   "devDependencies": {
     "@types/axios": "0.14.0",

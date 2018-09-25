@@ -2,12 +2,11 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { merge } from 'lodash';
 import { Store } from 'redux';
 import { updateErrorMessage } from '../features/common/redux/actions';
-import { currentHost } from './config';
 
 const DEFAULT_REQUEST_CONFIG: AxiosRequestConfig = {
   timeout: 10000,
   responseType: 'application/json',
-  baseURL: currentHost,
+  baseURL: process.env.REACT_APP_API_HOST,
 };
 
 export const get = (url: string, params: any, headers: any = null) =>
