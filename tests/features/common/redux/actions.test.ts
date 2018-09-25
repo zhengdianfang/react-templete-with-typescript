@@ -2,8 +2,8 @@ import axios from 'axios';
 import AxiosMock from 'axios-mock-adapter';
 import configureMockStore, { MockStoreCreator } from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { fetchTestList, switchAppLanguage } from '../../../../src/features/common/redux/actions';
 import { setResponseInterceptors } from '../../../../src/common/request';
+import { fetchTestList, switchAppLanguage } from '../../../../src/features/common/redux/actions';
 
 const mockStore: MockStoreCreator = configureMockStore([thunk]);
 describe('return correct type and payload by action functions', () => {
