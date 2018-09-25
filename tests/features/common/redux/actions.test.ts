@@ -2,8 +2,8 @@ import axios from 'axios';
 import AxiosMock from 'axios-mock-adapter';
 import configureMockStore, { MockStoreCreator } from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import actionTypes from '../../../../src/features/common/redux/actionTypes';
 import { fetchTestList, switchAppLanguage } from '../../../../src/features/common/redux/actions';
+import { setResponseInterceptors } from '../../../../src/common/request';
 
 const mockStore: MockStoreCreator = configureMockStore([thunk]);
 describe('return correct type and payload by action functions', () => {
@@ -18,20 +18,21 @@ describe('return correct type and payload by action functions', () => {
   });
   test('return correct object by switchAppLanguage function', () => {
     expect(switchAppLanguage('en')).toEqual({
-      type: actionTypes['SWITCH_LANGUAGE@MISCS'],
+      type: 'SWITCH_LANGUAGE@MISCS',
       payload: 'en',
     });
 
     expect(switchAppLanguage('zh')).toEqual({
-      type: actionTypes['SWITCH_LANGUAGE@MISCS'],
+      type: 'SWITCH_LANGUAGE@MISCS',
       payload: 'zh',
     });
   });
 
   test('should return actions by fetchTestList function', async () => {
-    axiosMock.onGet('http://www.example.com/list').reply(200, []);
+    axiosMock.onGet('http://localhost:8080/test/list').reply(200, []);
 
     const store = mockStore({});
+    setResponseInterceptors(store);
     await fetchTestList()(store.dispatch);
     const actions: any[] = store.getActions();
     expect(actions[0]).toHaveProperty('type', 'FETCH_START');

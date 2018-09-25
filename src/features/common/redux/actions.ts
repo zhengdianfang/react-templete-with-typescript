@@ -1,16 +1,26 @@
-import axios from 'axios';
 import { Dispatch } from 'redux';
+import { get } from '../../../common/request';
+import api from '../api';
 import { Action, Language } from '../types';
-import actionTypes from './actionTypes';
 
 export const switchAppLanguage = (lang: Language): Action<Language> => ({
-  type: actionTypes['SWITCH_LANGUAGE@MISCS'],
+  type: 'SWITCH_LANGUAGE@MISCS',
   payload: lang,
+});
+
+export const updateErrorMessage = (error: string): Action<string> => ({
+  type: 'UPDATE_ERROR_MESSAGE@MISCS',
+  payload: error,
+});
+
+export const clearErrorMessage = (): Action<undefined> => ({
+  type: 'CLEAR_ERROR_MESSAGE@MISCS',
+  payload: undefined,
 });
 
 export const fetchTestList = () => async (dispatch: Dispatch) => {
   dispatch({ type: 'FETCH_START' });
-  const response =  await axios.get('http://www.example.com/list');
-  dispatch({ type: 'FETCH_RESULT', payload: response.data });
+  const responseData =  await get(api.test, {});
+  dispatch({ type: 'FETCH_RESULT', payload: responseData });
   dispatch({ type: 'FETCH_END' });
 };

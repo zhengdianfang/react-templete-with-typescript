@@ -39,9 +39,7 @@ module.exports = {
     alias: {
       'react-native': 'react-native-web',
     },
-    plugins: [
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-    ],
+    plugins: [new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])],
   },
   module: {
     strictExportPresence: true,
@@ -84,7 +82,7 @@ module.exports = {
           },
           {
             test: /\.scss$/,
-            loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap',
+            use: ['style-loader', 'css-loader', 'sass-loader'],
           },
           {
             test: /\.css$/,
@@ -130,4 +128,4 @@ module.exports = {
   performance: {
     hints: false,
   },
-}
+};

@@ -2,6 +2,7 @@ import {
   chain,
   find,
   isEmpty,
+  size,
 } from 'lodash';
 
 import App from '../App';
@@ -12,7 +13,7 @@ import { Route } from './types';
 const childrenRoutes: Route[] = chain<Route[]>([])
   .concat(homeRoute)
   .concat({ path: '*', name: 'Page not found', component: PageNotFound })
-  .filter((r: Route) => r.component || (r.childRoutes && r.childRoutes.length > 0))
+  .filter((r: Route) => !isEmpty(r.component) || size(r.childRoutes) > 0)
   .value();
 
 const routes: Route[] = [{
